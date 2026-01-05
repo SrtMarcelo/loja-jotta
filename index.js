@@ -3,10 +3,9 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-app.use(express.json());
-
-// CORREÇÃO 1: Serve arquivos estáticos da raiz E da pasta site-jotta
-app.use(express.static(__dirname));
+// Simplificado: Removemos as duplicatas e mantivemos o essencial
+app.use(express.json()); 
+app.use(express.static(__dirname)); 
 app.use(express.static(path.join(__dirname, 'site-jotta')));
 
 const connection = mysql.createConnection({
@@ -17,7 +16,7 @@ const connection = mysql.createConnection({
   port: process.env.MYSQLPORT || 3306
 });
 
-// CORREÇÃO 2: Rota principal apontando para o arquivo correto (loja.html) dentro da pasta correta
+// Rota principal
 app.get('/', (req, res) => {
  res.sendFile(path.join(__dirname, 'site-jotta', 'loja.html'));
 });
