@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+ <html lang="pt-br">
+  <head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Jotta Store | Acesso</title>
+     <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+     body {
+    height: 100vh;
+   display: flex;
+  justify-content: center;
+ align-items: center;
+color: white;
+  overflow: hidden; /* Evita barras de rolagem pela animação do fundo */
+     position: relative;
+        }
+        /* Camada da Imagem com Movimento */
+         .background-image {
+        position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+     /* Substitua pelo caminho da sua imagem de roupas */
+     background: url('imagens/fundo-login.jpg') no-repeat center center;
+    background-size: cover;
+   z-index: -2;
+  filter: brightness(0.4); /* Escurece para dar foco ao login */
+animation: moveBackground 20s ease-in-out infinite alternate;
+ }
+   /* Camada de Gradiente para suavizar as bordas */
+     .background-overlay {
+        position: absolute;
+          top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, rgba(10,11,16,0.4) 0%, #050508 100%);
+          z-index: -1;
+        }
+      /* Animação de movimento suave (Zoom e Pan) */
+     @keyframes moveBackground {
+    0% { transform: scale(1); }
+  100% { transform: scale(1.1) translateX(-10px); }
+}
+ .login-card {
+   background: rgba(22, 27, 34, 0.85); /* Transparência para o efeito vidro */
+     padding: 40px;
+       border-radius: 15px;
+         border: 1px solid rgba(255, 255, 255, 0.1);
+           box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+         width: 100%;
+       max-width: 380px;
+    text-align: center;
+  backdrop-filter: blur(10px); /* O "pulo do gato" para o efeito vidro fosco */
+ z-index: 10;
+}
+ .login-card h2 { color: #58a6ff; margin-bottom: 10px; font-size: 28px; letter-spacing: 1px; }
+  .login-card p { color: #8b949e; margin-bottom: 30px; font-size: 14px; }
+   .input-group { text-align: left; margin-bottom: 20px; }
+     .input-group label { display: block; margin-bottom: 8px; color: #f0f6fc; font-size: 14px; }
+        input {
+         width: 100%;
+          padding: 12px;
+         background: rgba(13, 17, 23, 0.8);
+       border: 1px solid #30363d;
+     border-radius: 6px;
+    color: white;
+  outline: none;
+transition: 0.3s;
+}
+  input:focus { border-color: #58a6ff; box-shadow: 0 0 0 2px rgba(88,166,255,0.3); }
+   .btn-principal {
+     width: 100%;
+      padding: 14px;
+        background: #238636;
+          color: white;
+         border: none;
+        border-radius: 6px;
+      font-weight: bold;
+    cursor: pointer;
+   font-size: 16px;
+  transition: 0.3s;
+margin-bottom: 15px;
+ text-transform: uppercase;
+  }
+.btn-principal:hover { background: #2ea043; transform: translateY(-2px); box-shadow: 0 5px 15px rgba  (46, 160, 67, 0.4); }
+  .alternar {
+    color: #58a6ff;
+     font-size: 13px;
+      cursor: pointer;
+        text-decoration: none;
+         transition: 0.3s;
+          }
+        .alternar:hover { text-decoration: underline; color: #79c0ff; }
+      .hidden { display: none; }
+    </style>
+  </head>
+<body>
+ <div class="background-image"></div>
+  <div class="background-overlay"></div>
+   <div class="login-card">
+     <h2 id="titulo">Jotta Store &trade;</h2>
+      <p id="subtitulo">Identifique-se para acessar a loja</p>
+        <div class="input-group hidden" id="group-nome">
+         <label>Nome Completo</label>
+          <input type="text" id="nome" placeholder="Seu nome">
+        </div>
+      <div class="input-group">
+    <label>E-mail</label>
+  <input type="email" id="email" placeholder="seu@email.com">
+ </div>
+<div class="input-group">
+ <label>Senha</label>
+  <input type="password" id="senha" placeholder="••••••••">
+    </div>
+      <button class="btn-principal" id="btn-acao" onclick="executarAcao()">Entrar no Sistema</button>
+        <br>
+         <a class="alternar" id="link-alternar" onclick="toggleTela()">Não tem conta? Cadastre-se aqui</a>
+       </div>
+      <script>
+     let modoCadastro = false;
+    function toggleTela() {
+   modoCadastro = !modoCadastro;
+ const titulo = document.getElementById('titulo');
+const subtitulo = document.getElementById('subtitulo');
+ const btnAcao = document.getElementById('btn-acao');
+    const link = document.getElementById('link-alternar');
+      const groupNome = document.getElementById('group-nome');
+       if (modoCadastro) {
+         titulo.innerText = "Criar Conta";
+        subtitulo.innerText = "Preencha os dados abaixo";
+       btnAcao.innerText = "Finalizar Cadastro";
+      link.innerText = "Já tem conta? Faça login";
+     groupNome.classList.remove('hidden');
+    } else {
+   titulo.innerText = "Jotta Store";
+ subtitulo.innerText = "Identifique-se para acessar a loja";
+btnAcao.innerText = "Entrar no Sistema";
+ link.innerText = "Não tem conta? Cadastre-se aqui";
+   groupNome.classList.add('hidden');
+     }
+      }
+        async function executarAcao() {
+         const email = document.getElementById('email').value;
+        const senha = document.getElementById('senha').value;
+      const nome = document.getElementById('nome').value;
+    const rota = modoCadastro ? '/cadastrar' : '/login';
+   const corpoDados = modoCadastro 
+  ? JSON.stringify({ nome: nome, email: email, senha: senha })
+  : JSON.stringify({ email: email, senha: senha });
+ try {
+  const resposta = await fetch(`https://courageous-light-production.up.railway.app${rota}`, {
+    method: 'POST',
+     headers: { 'Content-Type': 'application/json' },
+       body: corpoDados
+        });
+           const resultado = await resposta.json();
+          if (resposta.ok) {
+        alert("✅ " + (modoCadastro ? "Cadastro realizado! Faça login." : "Acesso Autorizado!"));
+      if (!modoCadastro) {
+    window.location.href = "loja.html";
+  } else {
+ toggleTela();
+}
+ } else {
+  alert("❌ " + (resultado.erro || "Erro na operação. Verifique os dados."));
+    }
+     } catch (erro) {
+       alert("Erro técnico: Verifique se sua API Python está rodando!");
+         }
+       }
+    </script>
+  </body>
+</html>

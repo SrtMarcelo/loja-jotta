@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+ <html lang="pt-br">
+   <head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="index.css">
+       <title>Jotta...</title>
+      <style>
+    </style>
+ </head>
+<body class="preload"> <section id="lightbox" onclick="fecharLightbox()">
+ <span onclick="event.stopPropagation()">
+  <img id="lightbox-img" src="" alt="Imagem ampliada">
+    </span>
+     <button onclick="fecharLightbox()" style="position: absolute; top: 20px; right: 30px; font-size:  30px; border: none; background: transparent; color: white; cursor: pointer;">&times;</button>
+    </section> 
+   <main>
+  <section class="header-content">
+ <h1 style="color: white; margin-left: 0;">Sejam Bem Vindos À Nossa Loja!</h1>
+<h2>
+  Aqui, você encontra a sua melhor versão <br> com conforto, qualidade e elegância. <br> Não perca tempo e Bora conferir!  
+    </h2>
+      </section>
+        <br><br> <br> 
+       <section class="info-block">
+     <h3> Temos roupas e acessórios para toda família!</h3>
+    <p>Estilo, qualidade, e conforto nunca é demais.</p>
+  </section>
+<br> <br> <br>
+  <h3>Em busca de sempre proporcionar o melhor, para todos os nossos clientes. &#x2705;</h3>
+    <section class="produto-container">
+      <a href="https://wa.me/5534998765432" target="_blank"><img src="delivery1.png" alt="Fazemos Delivery"></a>
+         <a href="https://wa.me/5534998765432" target="_blank"><img src="pagamentos.png" alt="Aceitamos Cartão"></a>
+       <a href="https://wa.me/5534998765432" target="_blank"><img src="white.png" alt="Camiseta Txc"></a>
+     </section>
+   <H3><i>Conte mais sobre seus gostos...</i></H3>
+<label for="nomeInput"> <strong>  Qual estilo de roupa mais te agrada?</strong> </label>   
+  <input type="text" id="nomeInput" placeholder=" Digite aqui suas preferências.">
+     <button id="saudarBtn">Confirmar</button>
+       <p id="resposta" style="margin-top: 20px; font-weight: bold;"></p>
+         <br> <br>
+          <p class="descricao"> <br> 
+         <strong><li>Um pouco mais da gente ...</li></strong>
+        <br> 
+      <ul type="1" style="margin-left: 20px;">
+    <li>Preço bom.</li>
+  <li>Ótimo atendimento.</li>
+<li>Simplicidade.</li>
+ <li>Estilo.</li>
+  </ul>
+    <strong><li>Qualidade ... </li></strong>
+     <br>
+      <ul type="1" start="5" style="margin-left: 20px;">
+     <li>Sinceridade.</li>
+    <li>Compromisso.</li>
+  <li>Caráter.</li>
+<li>Bom ambiente.</li>
+ </ul>
+  </p>
+    <section class="produto-container">
+     <a href="https://wa.me/5534998765432"  target="_blank"> <img src="white1.png" alt="Camisetas Txc"></a>
+      <strong>  <i>Não pensa muito em...</i> </strong> 
+      Bora levar?
+     <a href="https://wa.me/5534998765432" target="_blank"><img src="blac11.png" alt="Camisetas Txc"></a>
+    <a href="https://wa.me/5534998765432" target="_blank">  <img src="jbl.png" alt="JBL"></a>
+   <a href="https://wa.me/5534998765432" target="_blank"> <img src="jeans.png" alt="Short Jeans"></a>
+  <a href="https://wa.me/5534998765432" target="_blank"> <img src="fone1.png" alt="Fone de Ouvido"></a>
+</section>
+ <P>Acreditamos que qualquer pessoa pode ser levada a tomar atitudes boas ao sentir-se confiante, a aparência realmente em si não é o principal mas, nem por isso deixa de ser algo importante. E aqui vamos trazer ela de volta, e vamos entregar mais ainda à quem tem. Estamos trazendo várias inovações na medida em que o nosso estoque começa a diminuir, sempre mantendo um padrão de excelência para todos os nosso queridos clientes. Conforme o tempo vai passando também vamos sempre procurando novos estilos para agregar algo a mais em nosso meio, desejamos que curtam tudo aquilo que vamos oferecer. Nossa principal função, é <strong> promulgar (criar) e trazer diversos modelos versáteis </strong> que seja bom para todos os gostos, sempre pensando no bem estar e claro o melhor estilo para você e sua família. Esperamos que aproveitem nossas ofertas, chama todo mundo e vem! será sempre um prazer atendê-los.</P>
+ <section class="cards">
+  <br><br></strong>
+   <h4>
+     Atendimento via DM.
+      Tupaciguara-MG 📍<br>
+         R. Antônio Gonçalves de Oliveira 82 <br>
+        Parceiros:
+      <a href="https://www.instagram.com/closet.ppink/" rel="_self">@closet.ppink</a><br>
+     </h4>
+   <figure class="card">
+ <figcaption class="card_title"> <br> <br> <br> <br> 
+<a href="https://www.instagram.com/jotta.sstore/" rel="_self">Clique aqui para acessar o instagram da   nossa loja!</a> 
+ </b>
+  </figcaption>
+    </figure>
+      Jotta &trade;
+        </section>
+      </main>
+     <script>
+  /*JAVASCRIPT PARA REMOVER A CLASSE 'preload'
+*/window.addEventListener('load', function() {
+ // Remove a classe 'preload' do body assim que todos os recursos (imagens, etc.) forem carregados.
+    // Isso dispara a transição CSS em cascata definida na tag <style>.
+     document.body.classList.remove('preload');
+      });
+       // Função para abrir o lightbox
+         function abrirLightbox(srcImagem) {
+        document.getElementById('lightbox').style.display = 'block';
+       document.getElementById('lightbox-img').src = srcImagem;
+      }
+     // Função para fechar o lightbox
+   function fecharLightbox() {
+  document.getElementById('lightbox').style.display = 'none' ;
+}
+ // Configura o clique em TODAS as imagens no produto-container
+    document.addEventListener('DOMContentLoaded', function() {
+      // Seleciona todas as imagens dentro do .produto-container (incluindo as que estão em <a>)
+        const todasAsImagens = document.querySelectorAll('.produto-container img');
+         todasAsImagens.forEach(img => {
+          img.style.cursor = 'pointer'; // Adiciona o cursor de "mãozinha"
+         img.addEventListener('click', function(event) {
+       // Prioriza o Lightbox: 
+     // Anula a ação padrão do link (se a imagem estiver dentro de um <a>, como o WhatsApp)
+    event.preventDefault(); 
+  // Abre o Lightbox
+abrirLightbox(this.src);
+ });
+  });
+    // FUNCIONALIDADE DO BOTÃO SAUDAR/RESPOSTA
+      const saudarBtn = document.getElementById('saudarBtn');
+        const nomeInput = document.getElementById('nomeInput');
+          const resposta = document.getElementById('resposta');
+         saudarBtn.addEventListener('click', function() {
+        if (nomeInput.value.trim() !== "") {
+       resposta.innerHTML = 'Huuum entendi..., você vai gostar dos estilos que temos, bora conferir? <br><br> <a href="https://wa.me/5534998899543" target="_blank" style="background-color: #25d366; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block;">Falar no WhatsApp</a>';
+    resposta.style.color = "#081374";
+} else {
+  resposta.textContent = "Por favor, digite seu estilo favorito acima!";
+    resposta.style.color = "red";
+     }
+      });
+        });
+         </script>
+       <footer class="footer-minimal">
+     <section class="email-input-section">
+    <p><strong> Para mais informações de contato, deixe seu e-mail aqui.</strong></p>
+  <input type="email" id="emailInput" placeholder="Digite seu e-mail">
+<button id="confirmarBtn">Confirmar</button>
+  <p id="mensagem" style="margin-top: 10px; font-weight: bold;"></p>
+    </section>
+      <section class="footer-container" > 
+        <section class="footer-column links-group">
+      <h4>Navegação:</h4>
+    <ul>
+   <li><a href="https://wa.me/5534998899543">Novidades</a></li>
+  <li><a href="https://wa.me/5534998899543">Camisetas</a></li>
+ <li><li><a href="https://wa.me/5534998899543">Calças Jeans</a></li>
+<li><a href="https://wa.me/5534998899543">Acessórios</a></li>
+ </ul>
+   </section>
+     <section class="footer-column links-group">
+        <h4>Informações adicionais:</h4>
+          <ul>
+         <li><a href="https://wa.me/5534998899543">Ajuda</a></li>
+        <li><a href="https://wa.me/5534998899543">Trocas e Devoluções</a></li>
+      <li><a href="https://wa.me/5534998899543">Fale Conosco</a></li>
+     <li><a href="https://wa.me/5534998899543">Política de Privacidade</a></li>
+    </ul>
+  </section>
+<section class="footer-column footer-logo">
+  Jotta &trade;
+    </section>
+      </section>
+        <p>&copy; 2025 Sua melhor versão. Todos os direitos reservados.</p>
+          </footer>
+         <script>
+        // Obter referências aos elementos do HTML
+      const emailInput = document.getElementById('emailInput');
+     const confirmarBtn = document.getElementById('confirmarBtn');
+   const mensagemElement = document.getElementById('mensagem');
+  // Adicionar um "ouvinte de eventos" (event listener) ao botão
+confirmarBtn.addEventListener('click', function() {
+  // Obter o valor digitado e remover espaços em branco no início/fim
+    const email = emailInput.value.trim(); 
+      // Expressão regular (regex) simples para validar o formato do e-mail
+        // Garante que tenha o @, e que haja texto.texto após o @
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          //  Verificar se o e-mail é válido
+         if (emailRegex.test(email)) 
+        {
+      // E-mail válido: Exibir mensagem de sucesso
+    mensagemElement.textContent = "✅ E-mail confirmado!";
+  mensagemElement.style.color = "green"; //  cor verde para sucesso!!
+// **IMPORTANTE:** Aqui é onde se enviaria os e-mail para um servidor real meu,
+ // mas para a validação simples no front-end, isso ai ja serve.
+    } else {
+        // E-mail inválido: Exibir mensagem de erro!
+          mensagemElement.textContent = "❌ Por favor, digite um e-mail válido.";
+            mensagemElement.style.color = "red"; //  cor vermelha para erro
+             }
+             });
+            </script> 
+           </body>
+         </html>
