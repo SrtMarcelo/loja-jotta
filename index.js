@@ -5,7 +5,7 @@ const app = express();
 
 // Simplificado: Removemos as duplicatas e mantivemos o essencial
 app.use(express.json()); 
-app.use(express.static(__dirname)); 
+
 app.use(express.static(path.join(__dirname, 'site-jotta')));
 
 const connection = mysql.createConnection({
@@ -18,7 +18,7 @@ const connection = mysql.createConnection({
 
 // Rota principal
 app.get('/', (req, res) => {
- res.sendFile(path.join(__dirname, 'site-jotta', 'index.html'));
+ res.sendFile(path.join(__dirname, 'site-jotta', 'loja.html'));
 });
 
 // --- ROTA DE CADASTRO ---
