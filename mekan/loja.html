@@ -164,31 +164,40 @@ abrirLightbox(this.src);
         <p>&copy; 2025 Sua melhor versão. Todos os direitos reservados.</p>
           </footer>
          <script>
-        // Obter referências aos elementos do HTML
-      const emailInput = document.getElementById('emailInput');
-     const confirmarBtn = document.getElementById('confirmarBtn');
-   const mensagemElement = document.getElementById('mensagem');
-  // Adicionar um "ouvinte de eventos" (event listener) ao botão
-confirmarBtn.addEventListener('click', function() {
-  // Obter o valor digitado e remover espaços em branco no início/fim
-    const email = emailInput.value.trim(); 
-      // Expressão regular (regex) simples para validar o formato do e-mail
-        // Garante que tenha o @, e que haja texto.texto após o @
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          //  Verificar se o e-mail é válido
-         if (emailRegex.test(email)) 
-        {
-      // E-mail válido: Exibir mensagem de sucesso
-    mensagemElement.textContent = "✅ E-mail confirmado!";
-  mensagemElement.style.color = "green"; //  cor verde para sucesso!!
-// **IMPORTANTE:** Aqui é onde se enviaria os e-mail para um servidor real meu,
- // mas para a validação simples no front-end, isso ai ja serve.
+  const emailInput = document.getElementById('emailInput');
+  const confirmarBtn = document.getElementById('confirmarBtn');
+  const mensagemElement = document.getElementById('mensagem');
+
+  confirmarBtn.addEventListener('click', async function() {
+    const email = emailInput.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (emailRegex.test(email)) {
+      mensagemElement.textContent = "Enviando...";
+      mensagemElement.style.color = "blue";
+
+      try {
+        // CONEXÃO COM O RENDER:
+        const response = await fetch('https://marcelo-ferreira-de-jesus.onrender.com/cadastro', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email })
+        });
+
+        if (response.ok) {
+          mensagemElement.textContent = "✅ E-mail salvo no banco de dados!";
+          mensagemElement.style.color = "green";
+        } else {
+          throw new Error();
+        }
+      } catch (error) {
+        // Se o Render estiver fora do ar ou o link errado, cai aqui:
+        mensagemElement.textContent = "❌ Erro ao conectar com o servidor Render.";
+        mensagemElement.style.color = "red";
+      }
     } else {
-        // E-mail inválido: Exibir mensagem de erro!
-          mensagemElement.textContent = "❌ Por favor, digite um e-mail válido.";
-            mensagemElement.style.color = "red"; //  cor vermelha para erro
-             }
-             });
-            </script> 
-           </body>
-         </html>
+      mensagemElement.textContent = "❌ Por favor, digite um e-mail válido.";
+      mensagemElement.style.color = "red";
+    }
+  });
+</script>
