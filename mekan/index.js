@@ -9,13 +9,12 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'site-jotta')));
 
 const connection = mysql.createConnection({
-  host: process.env.MYSQLHOST || 'localhost',
-  user: process.env.MYSQLUSER || 'root',
-  password: process.env.MYSQLPASSWORD || 'sua_senha', 
-  database: process.env.MYSQLDATABASE || 'railway',
+  host: process.env.MYSQLHOST,
+  user: process.env.MYSQLUSER,
+  password: process.env.MYSQLPASSWORD,
+  database: process.env.MYSQLDATABASE,
   port: process.env.MYSQLPORT || 3306
 });
-
 // Rota principal
 app.get('/', (req, res) => {
  res.sendFile(path.join(__dirname, 'site-jotta', 'loja.html'));
