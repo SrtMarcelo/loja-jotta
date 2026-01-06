@@ -114,57 +114,69 @@ margin-bottom: 15px;
          <a class="alternar" id="link-alternar" onclick="toggleTela()">Não tem conta? Cadastre-se aqui</a>
        </div>
       <script>
-     let modoCadastro = false;
+    let modoCadastro = false;
+
     function toggleTela() {
-   modoCadastro = !modoCadastro;
- const titulo = document.getElementById('titulo');
-const subtitulo = document.getElementById('subtitulo');
- const btnAcao = document.getElementById('btn-acao');
-    const link = document.getElementById('link-alternar');
-      const groupNome = document.getElementById('group-nome');
-       if (modoCadastro) {
-         titulo.innerText = "Criar Conta";
-        subtitulo.innerText = "Preencha os dados abaixo";
-       btnAcao.innerText = "Finalizar Cadastro";
-      link.innerText = "Já tem conta? Faça login";
-     groupNome.classList.remove('hidden');
-    } else {
-   titulo.innerText = "Jotta Store";
- subtitulo.innerText = "Identifique-se para acessar a loja";
-btnAcao.innerText = "Entrar no Sistema";
- link.innerText = "Não tem conta? Cadastre-se aqui";
-   groupNome.classList.add('hidden');
-     }
-      }
-        async function executarAcao() {
-         const email = document.getElementById('email').value;
-        const senha = document.getElementById('senha').value;
-      const nome = document.getElementById('nome').value;
-    const rota = modoCadastro ? '/cadastrar' : '/login';
-   const corpoDados = modoCadastro 
-  ? JSON.stringify({ nome: nome, email: email, senha: senha })
-  : JSON.stringify({ email: email, senha: senha });
- try {
-  const resposta = await fetch(`https://courageous-light-production.up.railway.app${rota}`, {
-    method: 'POST',
-     headers: { 'Content-Type': 'application/json' },
-       body: corpoDados
-        });
-           const resultado = await resposta.json();
-          if (resposta.ok) {
-        alert("✅ " + (modoCadastro ? "Cadastro realizado! Faça login." : "Acesso Autorizado!"));
-      if (!modoCadastro) {
-    window.location.href = "loja.html";
-  } else {
- toggleTela();
-}
- } else {
-  alert("❌ " + (resultado.erro || "Erro na operação. Verifique os dados."));
+        modoCadastro = !modoCadastro;
+        const titulo = document.getElementById('titulo');
+        const subtitulo = document.getElementById('subtitulo');
+        const btnAcao = document.getElementById('btn-acao');
+        const link = document.getElementById('link-alternar');
+        const groupNome = document.getElementById('group-nome');
+
+        if (modoCadastro) {
+            titulo.innerText = "Criar Conta";
+            subtitulo.innerText = "Preencha os dados abaixo";
+            btnAcao.innerText = "Finalizar Cadastro";
+            link.innerText = "Já tem conta? Faça login";
+            groupNome.classList.remove('hidden');
+        } else {
+            titulo.innerText = "Jotta Store";
+            subtitulo.innerText = "Identifique-se para acessar a loja";
+            btnAcao.innerText = "Entrar no Sistema";
+            link.innerText = "Não tem conta? Cadastre-se aqui";
+            groupNome.classList.add('hidden');
+        }
     }
-     } catch (erro) {
-       alert("Erro técnico: Verifique se sua API Python está rodando!");
-         }
-       }
-    </script>
+
+    async function executarAcao() {
+        const email = document.getElementById('email').value;
+        const senha = document.getElementById('senha').value;
+        const nome = document.getElementById('nome').value;
+        const rota = modoCadastro ? '/cadastrar' : '/login';
+        
+        // URL CORRIGIDA PARA O SEU SERVIDOR NO RENDER
+        const urlBase = 'https://marcelo-ferreira-de-jesus.onrender.com';
+
+        const corpoDados = modoCadastro 
+            ? JSON.stringify({ nome: nome, email: email, senha: senha })
+            : JSON.stringify({ email: email, senha: senha });
+
+        try {
+            const resposta = await fetch(`${urlBase}${rota}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: corpoDados
+            });
+
+            const resultado = await resposta.json();
+
+            if (resposta.ok) {
+                alert("✅ " + (modoCadastro ? "Cadastro realizado! Faça login." : "Acesso Autorizado!"));
+                if (!modoCadastro) {
+                    window.location.href = "loja.html";
+                } else {
+                    toggleTela();
+                }
+            } else {
+                alert("❌ " + (resultado.erro || "Erro na operação. Verifique os dados."));
+            }
+        } catch (erro) {
+            // Mensagem atualizada para o seu novo servidor Node no Render
+            alert("Erro técnico: O servidor no Render está offline ou demorando para responder.");
+            console.error(erro);
+        }
+    }
+</script>
   </body>
 </html>
