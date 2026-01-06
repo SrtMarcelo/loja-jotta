@@ -3,20 +3,30 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-// Simplificado: Removemos as duplicatas e mantivemos o essencial
 app.use(express.json()); 
 
+// Caminho correto para os arquivos estáticos (sem a pasta /app/)
 app.use(express.static(path.join(__dirname, 'site-jotta')));
 
+// Conexão usando as variáveis que você configurou no painel do Railway
 const connection = mysql.createConnection({
-  host: process.env.MYSQLHOST || 'localhost',
-  user: process.env.MYSQLUSER || 'root',
-  password: process.env.MYSQLPASSWORD || 'JGwsTBYFWtLCVfBsOKJmZLzmTNexZjhF', 
-  database: process.env.MYSQLDATABASE || 'railway',
+  host: process.env.MYSQLHOST,
+  user: process.env.MYSQLUSER,
+  password: process.env.MYSQLPASSWORD, 
+  database: process.env.MYSQLDATABASE,
   port: process.env.MYSQLPORT || 3306
 });
 
-// Rota principal
+// Testa a conexão com o banco de dados nos Logs
+connection.connect((err) => {
+  if (err) {
+    console.error('Erro ao conectar ao MySQL:', err);
+  } else {
+    console.log('Conectado ao banco de dados MySQL com sucesso!');
+  }
+});
+
+// Rota principal apontando para a pasta correta
 app.get('/', (req, res) => {
  res.sendFile(path.join(__dirname, 'site-jotta', 'loja.html'));
 });
@@ -54,6 +64,7 @@ app.post('/login', (req, res) => {
   });
 });
 
+// Porta dinâmica para o Railway funcionar
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Servidor rodando na porta ${PORT}`);
