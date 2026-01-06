@@ -17,7 +17,7 @@ const connection = mysql.createConnection({
 });
 // Rota principal
 app.get('/', (req, res) => {
- res.sendFile(path.join(__dirname, 'site-jotta', 'loja.html'));
+ res.sendFile(path.join(__dirname, 'loja.html'));
 });
 
 // --- ROTA DE CADASTRO ---
