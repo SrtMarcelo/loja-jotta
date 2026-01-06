@@ -6,7 +6,7 @@ const app = express();
 // Simplificado: Removemos as duplicatas e mantivemos o essencial
 app.use(express.json()); 
 
-app.use(express.static(path.join(__dirname, 'site-jotta')));
+app.use(express.static(__dirname));
 
 const connection = mysql.createConnection({
   host: process.env.MYSQLHOST,
