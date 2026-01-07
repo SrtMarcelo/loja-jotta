@@ -1,11 +1,12 @@
 const mysql = require('mysql2');
 const express = require('express');
 const path = require('path');
+const cors = require('cors'); // Importa a biblioteca de permissão
 const app = express();
 
-// Simplificado: Removemos as duplicatas e mantivemos o essencial
+// --- CONFIGURAÇÕES ---
+app.use(cors()); //  Libera o acesso para o site do GitHub
 app.use(express.json()); 
-
 app.use(express.static(__dirname));
 
 const connection = mysql.createConnection({
@@ -15,6 +16,7 @@ const connection = mysql.createConnection({
   database: process.env.MYSQLDATABASE,
   port: process.env.MYSQLPORT || 3306
 });
+
 // Rota principal
 app.get('/', (req, res) => {
  res.sendFile(path.join(__dirname, 'loja.html'));
@@ -53,7 +55,7 @@ app.post('/login', (req, res) => {
   });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000; // Render usa a porta 10000 por padrão
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Servidor rodando na porta ${PORT}`);
 });
