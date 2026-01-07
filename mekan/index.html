@@ -143,9 +143,14 @@ margin-bottom: 15px;
     const email = document.getElementById('email').value;
     const senha = document.getElementById('senha').value;
     const nome = document.getElementById('nome').value;
-    
-    // CORREÇÃO AQUI: Removemos a barra '/' do final da URL
-   const urlBase = 'https://marcelo-ferreira-de-jesus.onrender.com';
+
+    // 1. BLOQUEIO DE CAMPOS VAZIOS: Impede de prosseguir se faltar algo
+    if (!email || !senha || (modoCadastro && !nome)) {
+        alert("⚠️ Por favor, preencha todos os campos antes de continuar.");
+        return; // Para a execução aqui
+    }
+
+    const urlBase = 'https://marcelo-ferreira-de-jesus.onrender.com'; 
     const rota = modoCadastro ? '/cadastrar' : '/login';
 
     const corpoDados = modoCadastro 
@@ -153,7 +158,6 @@ margin-bottom: 15px;
         : JSON.stringify({ email: email, senha: senha });
 
     try {
-        // Agora o fetch formará corretamente: ...onrender.com/cadastrar
         const resposta = await fetch(`${urlBase}${rota}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -164,16 +168,18 @@ margin-bottom: 15px;
 
         if (resposta.ok) {
             alert("✅ " + (modoCadastro ? "Cadastro realizado! Faça login." : "Acesso Autorizado!"));
+            // 2. SÓ REDIRECIONA SE TUDO ESTIVER OK
             if (!modoCadastro) {
                 window.location.href = "loja.html";
             } else {
                 toggleTela();
             }
         } else {
-            alert("❌ " + (resultado.erro || "Erro na operação."));
+            // Se o servidor responder com erro (senha errada, etc), ele avisa aqui
+            alert("❌ " + (resultado.erro || "Dados inválidos. Verifique seu login."));
         }
     } catch (erro) {
-        alert("Erro técnico: Verifique sua conexão ou se o servidor no Render está online.");
+        alert("Erro técnico: O servidor não respondeu. Tente novamente em instantes.");
         console.error(erro);
     }
 }
