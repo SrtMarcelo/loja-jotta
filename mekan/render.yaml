@@ -1,7 +1,0 @@
-services:
-  - type: web
-    name: Marcelo-Ferreira-De-Jesus
-    runtime: node
-    rootDir: mekan
-    buildCommand: npm install
-    startCommand: node index.js
