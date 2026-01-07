@@ -172,32 +172,35 @@ abrirLightbox(this.src);
     const email = emailInput.value.trim();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (emailRegex.test(email)) {
-      mensagemElement.textContent = "Enviando...";
-      mensagemElement.style.color = "blue";
+    // Se o e-mail for inválido, avisa o usuário (Isso resolve o "não acontece nada")
+    if (!emailRegex.test(email)) {
+      mensagemElement.textContent = "⚠️ Por favor, digite um e-mail válido.";
+      mensagemElement.style.color = "orange";
+      return;
+    }
 
-      try {
-        // CONEXÃO COM O RENDER:
-        const response = await fetch('https://marcelo-ferreira-de-jesus.onrender.com/cadastro', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: email })
-        });
+    mensagemElement.textContent = "Enviando...";
+    mensagemElement.style.color = "blue";
 
-        if (response.ok) {
-          mensagemElement.textContent = "✅ E-mail salvo no banco de dados!";
-          mensagemElement.style.color = "green";
-        } else {
-          throw new Error();
-        }
-      } catch (error) {
-        // Se o Render estiver fora do ar ou o link errado, cai aqui:
-        mensagemElement.textContent = "❌ Erro ao conectar com o servidor Render.";
-        mensagemElement.style.color = "red";
+    try {
+      const response = await fetch('https://marcelo-ferreira-de-jesus.onrender.com/cadastro', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email })
+      });
+
+      if (response.ok) {
+        // SUCESSO: O servidor salvou o e-mail
+        mensagemElement.textContent = "✅ E-mail salvo no banco de dados!";
+        mensagemElement.style.color = "green";
+        emailInput.value = ""; // Limpa o campo após sucesso
+      } else {
+        throw new Error();
       }
+    } catch (error) {
+      // ERRO: O servidor está fora do ar ou o link está errado
+      mensagemElement.textContent = "❌ Erro ao conectar com o servidor Render.";
+      mensagemElement.style.color = "red";
     }
   });
-</script> 
-</body>
- </html>
- 
+</script>
