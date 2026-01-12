@@ -1,0 +1,6 @@
+pandas
+sqlalchemy
+pymysql
+cryptography
+openpyxl
+schedule
