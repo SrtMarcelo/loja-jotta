@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+   "start": "node mekan/index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
