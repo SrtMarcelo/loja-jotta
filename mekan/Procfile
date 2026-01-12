@@ -1,3 +1,1 @@
-
-web: node index.js
-worker: python mekan/disparo_automatico.py
+web: node index.js worker: python disparo_automatico.py
