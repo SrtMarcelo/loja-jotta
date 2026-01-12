@@ -1,5 +1,8 @@
 [phases.setup]
-nixPkgs = ["...", "nodejs"]
+nixPkgs = ["nodejs"]
 
-[phases.build]
+[phases.install]
 cmds = ["npm install"]
+
+[start]
+cmd = "node index.js"
