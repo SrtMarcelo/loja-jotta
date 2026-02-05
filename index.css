@@ -1,0 +1,94 @@
+ :root {
+            --bg-deep: #050505;
+            --accent-gold: #d4af37;
+            --gold-grad: linear-gradient(90deg, #b8972d 0%, #f2d06b 100%);
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #ffffff;
+            --text-dim: #b0b0b0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-deep); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+
+        /* HERO SECTION COM O RAPAZ DE TERNO */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(5,5,5,1) 100%), 
+                        url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2071&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center 20%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        /* NAVBAR IGUAL À IMAGEM (BORDA DOURADA E VIDRO) */
+        nav {
+            position: absolute; top: 30px; width: 90%; max-width: 1100px;
+            padding: 20px 40px; background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px); border-radius: 15px;
+            display: flex; justify-content: space-between; align-items: center;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+            z-index: 100;
+        }
+
+        .logo { font-size: 1.6rem; font-weight: 700; letter-spacing: 2px; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.8rem; text-transform: uppercase; opacity: 0.7; }
+
+        .hero-content h1 { font-size: clamp(2.5rem, 8vw, 4rem); letter-spacing: 10px; font-weight: 300; margin-bottom: 10px; text-transform: uppercase; }
+        .hero-content p { color: var(--text-dim); font-size: 1.2rem; letter-spacing: 4px; }
+
+        /* CONTEÚDO PRINCIPAL */
+        main { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        .section-title { margin: 60px 0 30px; font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; border-left: 3px solid var(--accent-gold); padding-left: 15px; }
+
+        /* GRID DE PRODUTOS */
+        .grid-produtos { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
+        .card {
+            background: #111; border-radius: 20px; padding: 20px;
+            border: 1px solid var(--glass-border); transition: 0.5s; text-align: center;
+        }
+        .card:hover { border-color: var(--accent-gold); transform: translateY(-10px); }
+        
+        /* ADIÇÃO: Cursor de Zoom nas Imagens */
+        .card img { width: 100%; border-radius: 12px; margin-bottom: 15px; cursor: pointer; transition: 0.3s; }
+        .card img:hover { filter: brightness(1.2); }
+
+        /* ADIÇÃO: Estilo do Lightbox (Visualização Individual) */
+        #lightbox {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); z-index: 1000; backdrop-filter: blur(10px);
+            justify-content: center; align-items: center; cursor: pointer;
+        }
+        #lightbox img { max-width: 90%; max-height: 80%; border-radius: 10px; border: 2px solid var(--accent-gold); }
+
+        /* INTERAÇÃO */
+        .box-interacao {
+            background: linear-gradient(145deg, #0f0f0f, #050505);
+            padding: 60px; border-radius: 30px; margin: 80px 0;
+            border: 1px solid var(--glass-border); text-align: center;
+        }
+        input { 
+            width: 100%; max-width: 400px; padding: 18px; border-radius: 10px; border: 1px solid #222;
+            background: #000; color: white; margin: 20px 0; outline: none;
+        }
+        .btn-gold { background: var(--gold-grad); color: black; border: none; padding: 18px 45px; border-radius: 10px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+
+        /* LISTAS E MANIFESTO */
+        .info-extra { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 60px 0; }
+        .info-extra div { background: var(--glass); padding: 30px; border-radius: 20px; border: 1px solid var(--glass-border); }
+        ul { list-style: none; margin-top: 15px; }
+        ul li::before { content: "✓ "; color: var(--accent-gold); }
+        .manifesto-texto { padding: 40px; background: #0a0a0a; border-radius: 20px; border: 1px solid var(--glass-border); color: var(--text-dim); text-align: justify; margin-bottom: 60px; }
+
+        /* FOOTER */
+        footer { background: #000; padding: 80px 20px 40px; border-top: 1px solid #111; text-align: center; }
+        .footer-logo { font-size: 2rem; font-weight: 700; letter-spacing: 5px; color: var(--accent-gold); margin-bottom: 10px; }
+
+
+

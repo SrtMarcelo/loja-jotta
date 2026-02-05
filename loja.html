@@ -1,208 +1,121 @@
-<!DOCTYPE html>
- <html lang="pt-br">
-   <head>
+  <!DOCTYPE html>
+   <html lang="pt-br">
+     <head>
     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="index.css">
-       <title>Jotta...</title>
-      <style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Jotta Store - Sua Melhor Versão</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+       
     </style>
- </head>
-<body class="preload"> <section id="lightbox" onclick="fecharLightbox()">
- <span onclick="event.stopPropagation()">
-  <img id="lightbox-img" src="" alt="Imagem ampliada">
-    </span>
-     <button onclick="fecharLightbox()" style="position: absolute; top: 20px; right: 30px; font-size:  30px; border: none; background: transparent; color: white; cursor: pointer;">&times;</button>
-    </section> 
-   <main>
-  <section class="header-content">
- <h1 style="color: white; margin-left: 0;">Sejam Bem Vindos À Nossa Loja!</h1>
-<h2>
-  Aqui, você encontra a sua melhor versão <br> com conforto, qualidade e elegância. <br> Não perca tempo e Bora conferir!  
-    </h2>
-      </section>
-        <br><br> <br> 
-       <section class="info-block">
-     <h3> Temos roupas e acessórios para toda família!</h3>
-    <p>Estilo, qualidade, e conforto nunca é demais.</p>
-  </section>
-<br> <br> <br>
-  <h3>Em busca de sempre proporcionar o melhor, para todos os nossos clientes. &#x2705;</h3>
-    <section class="produto-container">
-      <a href="https://wa.me/5534998765432" target="_blank"><img src="delivery1.png" alt="Fazemos Delivery"></a>
-         <a href="https://wa.me/5534998765432" target="_blank"><img src="pagamentos.png" alt="Aceitamos Cartão"></a>
-       <a href="https://wa.me/5534998765432" target="_blank"><img src="white.png" alt="Camiseta Txc"></a>
-     </section>
-   <H3><i>Conte mais sobre seus gostos...</i></H3>
-<label for="nomeInput"> <strong>  Qual estilo de roupa mais te agrada?</strong> </label>   
-  <input type="text" id="nomeInput" placeholder=" Digite aqui suas preferências.">
-     <button id="saudarBtn">Confirmar</button>
-       <p id="resposta" style="margin-top: 20px; font-weight: bold;"></p>
-         <br> <br>
-          <p class="descricao"> <br> 
-         <strong><li>Um pouco mais da gente ...</li></strong>
-        <br> 
-      <ul type="1" style="margin-left: 20px;">
-    <li>Preço bom.</li>
-  <li>Ótimo atendimento.</li>
-<li>Simplicidade.</li>
- <li>Estilo.</li>
-  </ul>
-    <strong><li>Qualidade ... </li></strong>
-     <br>
-      <ul type="1" start="5" style="margin-left: 20px;">
-     <li>Sinceridade.</li>
-    <li>Compromisso.</li>
-  <li>Caráter.</li>
-<li>Bom ambiente.</li>
- </ul>
-  </p>
-    <section class="produto-container">
-     <a href="https://wa.me/5534998765432"  target="_blank"> <img src="white1.png" alt="Camisetas Txc"></a>
-      <strong>  <i>Não pensa muito em...</i> </strong> 
-      Bora levar?
-     <a href="https://wa.me/5534998765432" target="_blank"><img src="blac11.png" alt="Camisetas Txc"></a>
-    <a href="https://wa.me/5534998765432" target="_blank">  <img src="jbl.png" alt="JBL"></a>
-   <a href="https://wa.me/5534998765432" target="_blank"> <img src="jeans.png" alt="Short Jeans"></a>
-  <a href="https://wa.me/5534998765432" target="_blank"> <img src="fone1.png" alt="Fone de Ouvido"></a>
-</section>
- <P>Acreditamos que qualquer pessoa pode ser levada a tomar atitudes boas ao sentir-se confiante, a aparência realmente em si não é o principal mas, nem por isso deixa de ser algo importante. E aqui vamos trazer ela de volta, e vamos entregar mais ainda à quem tem. Estamos trazendo várias inovações na medida em que o nosso estoque começa a diminuir, sempre mantendo um padrão de excelência para todos os nosso queridos clientes. Conforme o tempo vai passando também vamos sempre procurando novos estilos para agregar algo a mais em nosso meio, desejamos que curtam tudo aquilo que vamos oferecer. Nossa principal função, é <strong> promulgar (criar) e trazer diversos modelos versáteis </strong> que seja bom para todos os gostos, sempre pensando no bem estar e claro o melhor estilo para você e sua família. Esperamos que aproveitem nossas ofertas, chama todo mundo e vem! será sempre um prazer atendê-los.</P>
- <section class="cards">
-  <br><br></strong>
-   <h4>
-     Atendimento via DM.
-      Tupaciguara-MG 📍<br>
-         R. Antônio Gonçalves de Oliveira 82 <br>
-        Parceiros:
-      <a href="https://www.instagram.com/closet.ppink/" rel="_self">@closet.ppink</a><br>
-     </h4>
-   <figure class="card">
- <figcaption class="card_title"> <br> <br> <br> <br> 
-<a href="https://www.instagram.com/jotta.sstore/" rel="_self">Clique aqui para acessar o instagram da   nossa loja!</a> 
- </b>
-  </figcaption>
-    </figure>
-      Jotta &trade;
+</head>
+<body>
+    <div id="lightbox" onclick="this.style.display='none'">
+        <img id="img-foco" src="">
+    </div>
+    <section class="hero">
+        <nav>
+            <div class="logo">Jotta™</div>
+            <div class="nav-links">
+                <a href="https://api.whatsapp.com/send/?phone=5534998899543&text=Ol%C3%A1%2C+quero+mais+informa%C3%A7%C3%B5es&type=phone_number&app_absent=0&utm_source=ig">Novidades</a>
+                <a href="https://api.whatsapp.com/send/?phone=5534998899543&text=Ol%C3%A1%2C+quero+mais+informa%C3%A7%C3%B5es&type=phone_number&app_absent=0&utm_source=ig">Roupas</a>
+                <a href="https://api.whatsapp.com/send/?phone=5534998899543&text=Ol%C3%A1%2C+quero+mais+informa%C3%A7%C3%B5es&type=phone_number&app_absent=0&utm_source=ig">Acessórios</a>
+            </div>
+        </nav>
+        <div class="hero-content">
+            <h1>SEJA BEM-VINDO À JOTTA™</h1>
+            <p>Elegância. Qualidade. Sua Melhor Versão.</p>
+        </div>
+    </section>
+    <main>
+        <h2 class="section-title">Vitrine Premium</h2>
+        <div class="grid-produtos">
+            <div class="card"><img src="blac11.png" onclick="verImagem(this.src)"><strong>Essential Black</strong></div>
+            <div class="card"><img src="pagamentos.png" onclick="verImagem(this.src)"><strong>Aceitamos Cartão</strong></div>
+            <div class="card"><img src="white.png" onclick="verImagem(this.src)"><strong>Camiseta TXC White</strong></div>
+        </div>
+        <section class="box-interacao">
+            <h3>CONTE MAIS SOBRE SEUS GOSTOS...</h3>
+            <p style="color: var(--text-dim)">Qual estilo de roupa mais te agrada?</p>
+            <input type="text" id="nomeInput" placeholder="Digite seu estilo favorito...">
+            <br>
+            <button class="btn-gold" id="saudarBtn">Confirmar Escolha</button>
+            <div id="resposta" style="margin-top: 25px; font-weight: bold;"></div>
         </section>
-      </main>
-     <script>
-  /*JAVASCRIPT PARA REMOVER A CLASSE 'preload'
-*/window.addEventListener('load', function() {
- // Remove a classe 'preload' do body assim que todos os recursos (imagens, etc.) forem carregados.
-    // Isso dispara a transição CSS em cascata definida na tag <style>.
-     document.body.classList.remove('preload');
-      });
-       // Função para abrir o lightbox
-         function abrirLightbox(srcImagem) {
-        document.getElementById('lightbox').style.display = 'block';
-       document.getElementById('lightbox-img').src = srcImagem;
-      }
-     // Função para fechar o lightbox
-   function fecharLightbox() {
-  document.getElementById('lightbox').style.display = 'none' ;
-}
- // Configura o clique em TODAS as imagens no produto-container
-    document.addEventListener('DOMContentLoaded', function() {
-      // Seleciona todas as imagens dentro do .produto-container (incluindo as que estão em <a>)
-        const todasAsImagens = document.querySelectorAll('.produto-container img');
-         todasAsImagens.forEach(img => {
-          img.style.cursor = 'pointer'; // Adiciona o cursor de "mãozinha"
-         img.addEventListener('click', function(event) {
-       // Prioriza o Lightbox: 
-     // Anula a ação padrão do link (se a imagem estiver dentro de um <a>, como o WhatsApp)
-    event.preventDefault(); 
-  // Abre o Lightbox
-abrirLightbox(this.src);
- });
-  });
-    // FUNCIONALIDADE DO BOTÃO SAUDAR/RESPOSTA
-      const saudarBtn = document.getElementById('saudarBtn');
-        const nomeInput = document.getElementById('nomeInput');
-          const resposta = document.getElementById('resposta');
-         saudarBtn.addEventListener('click', function() {
-        if (nomeInput.value.trim() !== "") {
-       resposta.innerHTML = 'Huuum entendi..., você vai gostar dos estilos que temos, bora conferir? <br><br> <a href="https://wa.me/5534998899543" target="_blank" style="background-color: #25d366; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block;">Falar no WhatsApp</a>';
-    resposta.style.color = "#081374";
-} else {
-  resposta.textContent = "Por favor, digite seu estilo favorito acima!";
-    resposta.style.color = "red";
-     }
-      });
-        });
-         </script>
-       <footer class="footer-minimal">
-     <section class="email-input-section">
-    <p><strong> Para mais informações de contato, deixe seu e-mail aqui.</strong></p>
-  <input type="email" id="emailInput" placeholder="Digite seu e-mail">
-<button id="confirmarBtn">Confirmar</button>
-  <p id="mensagem" style="margin-top: 10px; font-weight: bold;"></p>
-    </section>
-      <section class="footer-container" > 
-        <section class="footer-column links-group">
-      <h4>Navegação:</h4>
-    <ul>
-   <li><a href="https://wa.me/5534998899543">Novidades</a></li>
-  <li><a href="https://wa.me/5534998899543">Camisetas</a></li>
- <li><li><a href="https://wa.me/5534998899543">Calças Jeans</a></li>
-<li><a href="https://wa.me/5534998899543">Acessórios</a></li>
- </ul>
-   </section>
-     <section class="footer-column links-group">
-        <h4>Informações adicionais:</h4>
-          <ul>
-         <li><a href="https://wa.me/5534998899543">Ajuda</a></li>
-        <li><a href="https://wa.me/5534998899543">Trocas e Devoluções</a></li>
-      <li><a href="https://wa.me/5534998899543">Fale Conosco</a></li>
-     <li><a href="https://wa.me/5534998899543">Política de Privacidade</a></li>
-    </ul>
-  </section>
-<section class="footer-column footer-logo">
-  Jotta &trade;
-    </section>
-      </section>
-        <p>&copy; 2025 Sua melhor versão. Todos os direitos reservados.</p>
-          </footer>
-         <script>
-  const emailInput = document.getElementById('emailInput');
-  const confirmarBtn = document.getElementById('confirmarBtn');
-  const mensagemElement = document.getElementById('mensagem');
 
-  confirmarBtn.addEventListener('click', async function() {
-    const email = emailInput.value.trim();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        <div class="info-extra">
+            <div>
+                <strong>Um pouco mais da gente...</strong>
+                <ul>
+                    <li>Preço bom</li>
+                    <li>Atendimento Premium</li>
+                    <li>Simplicidade</li>
+                    <li>Estilo Único</li>
+                </ul>
+            </div>
+            <div>
+                <strong>Nossa Qualidade...</strong>
+                  <ul>
+                    <li>Sinceridade</li>
+                     <li>Compromisso</li>
+                    <li>Caráter</li>
+                    <li>Ambiente Exclusivo</li>
+                </ul>
+            </div>
+        </div>
+         <h2 class="section-title">Nossa Missão</h2>
+         <article class="manifesto-texto">
+            <p>Acreditamos que qualquer pessoa pode ser levada a tomar atitudes boas ao sentir-se confiante, a aparência realmente em si não é o principal mas, nem por isso deixa de ser algo importante. E aqui vamos trazer ela de volta, e vamos entregar mais ainda à quem tem. Estamos trazendo várias inovações na medida em que o nosso estoque começa a diminuir, sempre mantendo um padrão de excelência para todos os nosso queridos clientes. Esperamos que aproveitem nossas ofertas, chama todo mundo e vem!</p>
+        </article>
+        <div class="grid-produtos">
+            <div class="card"><img src="white1.png" onclick="verImagem(this.src)"><strong> TXC Bora levar?</strong></div>
+              <div class="card"><img src="fone1.png" onclick="verImagem(this.src)"><strong>Premium Audio</strong></div>
+             <div class="card"><img src="jeans.png" onclick="verImagem(this.src)"><strong>Short Jeans</strong></div>
+            <div class="card"><img src="delivery1.png" onclick="verImagem(this.src)"><strong>     Fazemos Delivery                  </strong></div>
+         </div>
+     </main>
+    <footer>
+        <div class="footer-logo">JOTTA STORE</div>
+         <p>Tupaciguara-MG 📍  |  R. Antônio Gonçalves de Oliveira 82</p> <br>
+      Visite nossa  <a href="https://www.instagram.com/jotta.sstore/" > Loja do instagram</a> <br>
+       Meu <a href="https://www.instagram.com/joaovittul/" > Instagram pessoal</a>
+        <div style="margin-top: 40px;">
+            <p style="margin-bottom: 15px;"> Fique por dentro das nossas novidades!</p>
+             <input type="email" id="emailInput" placeholder="seu@email.com" style="margin:0; width: 250px; padding: 10px;">
+               <button class="btn-gold" id="confirmarBtn" style="padding: 10px 20px;">OK</button>
+            <p id="mensagem" style="margin-top: 10px; font-size: 0.8rem;"></p>
+        </div>
+    </footer>
+    <script>
+        // ADIÇÃO: Função para abrir imagem individualmente
+        function verImagem(url) {
+             const lightbox = document.getElementById('lightbox');
+               const imgFoco = document.getElementById('img-foco');
+              imgFoco.src = url;
+            lightbox.style.display = 'flex';
+        }
+        // Interação de estilo
+        document.getElementById('saudarBtn').onclick = function() {
+            const estilo = document.getElementById('nomeInput').value;
+               const resp = document.getElementById('resposta');
+              if(estilo) {
+                resp.innerHTML = `Excelente! o ${estilo} combina com nossa nova coleção! Chama a gente lá no zap...<br><br> <a href="https://wa.me/5534998765432" style="color:var(--accent-gold); text-decoration:none;">[ CHAME NO WHATSAPP ]</a>`;
+            }
+        };
 
-    // Se o e-mail for inválido, avisa o usuário (Isso resolve o "não acontece nada")
-    if (!emailRegex.test(email)) {
-      mensagemElement.textContent = "⚠️ Por favor, digite um e-mail válido.";
-      mensagemElement.style.color = "orange";
-      return;
-    }
-
-    mensagemElement.textContent = "Enviando...";
-    mensagemElement.style.color = "blue";
-
-    try {
-      const response = await fetch('https://marcelo-ferreira-de-jesus.onrender.com/cadastro', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email })
-      });
-
-      if (response.ok) {
-        // SUCESSO: O servidor salvou o e-mail
-        mensagemElement.textContent = "✅ E-mail salvo no banco de dados!";
-        mensagemElement.style.color = "green";
-        emailInput.value = ""; // Limpa o campo após sucesso
-      } else {
-        throw new Error();
-      }
-    } catch (error) {
-      // ERRO: O servidor está fora do ar ou o link está errado
-      mensagemElement.textContent = "E-mail enviado com sucesso ✅";
-      mensagemElement.style.color = "green";
-    }
-  });
-</script>
+        // Script de email
+        document.getElementById('confirmarBtn').onclick = async function() {
+            const email = document.getElementById('emailInput').value;
+            const msg = document.getElementById('mensagem');
+            if(email.includes('@')) {
+                msg.innerHTML = "✅ E-mail salvo para ofertas exclusivas!";
+                msg.style.color = "green";
+            } else {
+                msg.innerHTML = "❌ Insira um e-mail válido.";
+                msg.style.color = "red";
+            }
+        };
+    </script>
 </body>
 </html>

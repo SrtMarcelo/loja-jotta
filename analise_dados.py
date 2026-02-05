@@ -67,7 +67,7 @@ def verificar_login():
                 try:
                     # Compara a senha digitada com a criptografia do banco
                     if bcrypt.checkpw(senha.encode('utf-8'), hash_do_banco.encode('utf-8')):
-                        messagebox.showinfo("Sucesso", "Acesso Autorizado!")
+                        messagebox.showinfo("Acesso Autorizado!")
                         processar_bi_e_enviar_email()
                     else:
                         messagebox.showerror("Erro", "Senha incorreta.")
